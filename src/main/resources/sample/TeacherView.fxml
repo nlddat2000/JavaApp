@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="1050.0" style="-fx-background-color: #006699;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherView">
+    <left>
+        <VBox prefHeight="522.0" prefWidth="138.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="name" prefHeight="17.0" prefWidth="120.0" promptText="Name" style="-fx-background-color: #C6ECFF;" />
+                <TextField fx:id="gender" promptText="Gender" style="-fx-background-color: #C6ECFF;" />
+                <TextField fx:id="birthday" promptText="Birthday" style="-fx-background-color: #C6ECFF;" />
+                <TextField fx:id="address" promptText="Address" style="-fx-background-color: #C6ECFF;" />
+                <TextField fx:id="username" promptText="Username" style="-fx-background-color: #C6ECFF;" />
+                <TextField fx:id="email" promptText="Email" style="-fx-background-color: #C6ECFF;" />
+                <TextField fx:id="password" promptText="Password" style="-fx-background-color: #C6ECFF;" />
+                <TextField fx:id="major" promptText="Major" style="-fx-background-color: #C6ECFF;" />
+                <TextField fx:id="placeOfBirth" promptText="PlaceOfBirth" style="-fx-background-color: #C6ECFF;" />
+                <TextField fx:id="intake" promptText="Intake" style="-fx-background-color: #C6ECFF;" />
+            <TextField fx:id="accessrole" promptText="accessrole" style="-fx-background-color: #C6ECFF;" />
+            </children>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <padding>
+                <Insets right="10.0" />
+            </padding>
+        </VBox>
+    </left>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+   <center>
+        <TableView fx:id="tableOfStudent" onMouseClicked="#getSelected" prefHeight="505.0" prefWidth="806.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="81.0" text="Name" />
+                <TableColumn fx:id="genderColumn" prefWidth="85.0" text="Gender" />
+                <TableColumn fx:id="birthdayColumn" prefWidth="79.199951171875" text="Birthday" />
+                <TableColumn fx:id="addressColumn" prefWidth="76.79998779296875" text="Address" />
+                <TableColumn fx:id="usernameColumn" prefWidth="76.79998779296875" text="Username" />
+                <TableColumn fx:id="emailColumn" text="Email" />
+                <TableColumn fx:id="passwordColumn" prefWidth="71.99993896484375" text="Password" />
+                <TableColumn fx:id="majorColumn" prefWidth="67.199951171875" text="Major" />
+                <TableColumn fx:id="placeOfBirthColumn" prefWidth="52.0" text="PlaceOfBirth" />
+                <TableColumn fx:id="intakeColumn" prefWidth="60.0" text="Intake" />
+            <TableColumn fx:id="accessroleColumn" prefWidth="75.0" text="Accessrole" />
+            </columns>
+        </TableView>
+   </center>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+                <Button minWidth="100.0" mnemonicParsing="false" onAction="#insert" prefHeight="30.0" prefWidth="127.0" text="Insert">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin></Button>
+                <Button mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="184.0" text="Search">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin></Button>
+                <Button mnemonicParsing="false" onAction="#modify" prefHeight="26.0" prefWidth="195.0" text="Modify">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin></Button>
+                <Button mnemonicParsing="false" onAction="#delete" prefHeight="30.0" prefWidth="139.0" text="Delete">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#score" prefHeight="30.0" prefWidth="139.0" text="Score">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

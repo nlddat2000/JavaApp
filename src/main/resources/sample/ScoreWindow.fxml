@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ScoreWindowController">
+   <children>
+      <Label layoutX="108.0" layoutY="73.0" text="Username:" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="NameLabel" layoutX="225.0" layoutY="73.0" text="Label" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="125.0" text="Math:" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="MathLabel" layoutX="144.0" layoutY="39.0" text="Label" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="173.0" text="Law:" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="70.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="LawLabel" layoutX="109.0" layoutY="69.0" text="Label" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="70.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="216.0" text="Physics:" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="PhysicsLabel" layoutX="135.0" layoutY="99.0" text="Label" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="75.0" layoutY="125.0" text="Programming Exercise:" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="130.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="ProgramingExerciseLabel" layoutX="243.0" layoutY="129.0" text="Label" AnchorPane.leftAnchor="240.0" AnchorPane.topAnchor="130.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="85.0" layoutY="135.0" text="GPA:" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="160.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="GPALabel" layoutX="111.0" layoutY="160.0" text="Label">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
