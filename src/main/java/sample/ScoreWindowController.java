@@ -36,7 +36,7 @@ public class ScoreWindowController implements  Initializable{
         try{
             String url = "jdbc:sqlserver://localhost:1433;databaseName=Student_Info;";
             Connection connection = DriverManager.getConnection(url, "sa", "123");
-            String sql = "select score,course from score join teacher on teacher.tname = score.tname where score.username =  '" + Username + "';" ;
+            String sql = "select score,course from score join teacher on teacher.tusername = score.tusername where score.username =  '" + Username + "';" ;
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sql);
 

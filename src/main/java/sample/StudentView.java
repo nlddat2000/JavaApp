@@ -3,19 +3,24 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class StudentView {
 
     @FXML static String username;
-    @FXML static String password;
     @FXML Label name;
     @FXML Label gender;
     @FXML Label birthday;
@@ -27,18 +32,12 @@ public class StudentView {
     @FXML Label placeofbirth;
     @FXML Label intake;
 
-//    public void closeWindow() {
-//        Stage window = new Stage();
-//        window.close();
-//    }
-
     public void setStatus(String loginUsername) {
         username = loginUsername;
         System.out.println("Accepted");
         getStudentInfo(username);
     }
-    public void modify1(ActionEvent event) {
-        System.out.println("deja vu");
+    public void modify1() {
        AnchorPane root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifyStudent.fxml"));
@@ -91,8 +90,7 @@ public class StudentView {
 
         }
     }
-    public void watchGPA(ActionEvent event) {
-        System.out.println("deja vu");
+    public void watchGPA() {
         AnchorPane root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ScoreWindow.fxml"));
@@ -108,5 +106,33 @@ public class StudentView {
             e.printStackTrace();
         }
     }
+
+
+    public void changePass() throws IOException {
+        GridPane root;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ChangePass.fxml"));
+            root = loader.load();
+            Stage window = new Stage();
+            window.setScene(new Scene(root));
+            //ScoreWindowController controller = loader.getController();
+            window.setTitle("Change Password");
+            window.showAndWait();
+            setStatus(username);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void Logout(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(new Scene(root));
+        window.setTitle("login");
+        window.show();
+
+    }
+
+
 
 }

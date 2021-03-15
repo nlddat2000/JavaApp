@@ -11,12 +11,12 @@ public class StudentInfo {
     private String major;
     private String placeOfBirth;
     private int intake;
-    private int accessrole;
+    private float score;
     public StudentInfo(){
 
     }
 
-    public StudentInfo (String name, String gender, String birthday, String address, String username, String email, String password, String major, String placeOfBirth, int intake, int accessrole) {
+    public StudentInfo (String name, String gender, String birthday, String address, String username, String email, String password, String major, String placeOfBirth, int intake, float score) {
         this.name = name == null ? "1" : name;
         this.gender = gender == null ? "1" : gender;
         this.birthday = birthday == null ? "1" : birthday;
@@ -27,7 +27,7 @@ public class StudentInfo {
         this.major = major == null ? "1": major;
         this.placeOfBirth = placeOfBirth == null ? "1": placeOfBirth;
         this.intake = intake == 0 ? 0 : intake;
-        this.accessrole = accessrole == 0 ? 0 : accessrole;
+        this.score = score == 0 ? 0 : score;
     }
 
     public String getName() {
@@ -110,11 +110,11 @@ public class StudentInfo {
         this.intake = intake;
     }
 
-    public int getAccessrole() {
-        return accessrole;
+    public float getScore() {
+        return score;
     }
 
-    public void setAccessrole(int accessrole) {
-        this.accessrole = accessrole;
+    public void setScore(float score) {
+        this.score = score;
     }
 }

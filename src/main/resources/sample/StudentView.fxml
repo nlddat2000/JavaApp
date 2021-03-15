@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentView">
    <children>
       <Label layoutX="37.0" layoutY="536.0" text="Intake:" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="530.0">
@@ -105,7 +107,9 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="GPA" layoutX="602.0" layoutY="429.0" mnemonicParsing="false" onAction="#watchGPA" prefHeight="43.0" prefWidth="126.0" text="View Score" />
-      <Button layoutX="602.0" layoutY="224.0" mnemonicParsing="false" onAction="#modify1" prefHeight="43.0" prefWidth="126.0" text="Modify " />
+      <Button fx:id="GPA" layoutX="602.0" layoutY="309.0" mnemonicParsing="false" onAction="#watchGPA" prefHeight="43.0" prefWidth="126.0" text="View Score" AnchorPane.topAnchor="300.0" />
+      <Button layoutX="602.0" layoutY="224.0" mnemonicParsing="false" onAction="#modify1" prefHeight="43.0" prefWidth="126.0" text="Modify " AnchorPane.topAnchor="220.0" />
+      <Button layoutX="602.0" layoutY="389.0" mnemonicParsing="false" onAction="#changePass" prefHeight="43.0" prefWidth="126.0" text="Change password" AnchorPane.topAnchor="380.0" />
+      <Button layoutX="602.0" layoutY="464.0" mnemonicParsing="false" onAction="#Logout" prefHeight="43.0" prefWidth="126.0" text="Log out" AnchorPane.topAnchor="460.0" />
    </children>
 </AnchorPane>
