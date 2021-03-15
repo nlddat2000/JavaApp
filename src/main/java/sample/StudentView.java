@@ -3,6 +3,7 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -26,6 +27,11 @@ public class StudentView {
     @FXML Label placeofbirth;
     @FXML Label intake;
 
+//    public void closeWindow() {
+//        Stage window = new Stage();
+//        window.close();
+//    }
+
     public void setStatus(String loginUsername) {
         username = loginUsername;
         System.out.println("Accepted");
@@ -33,41 +39,22 @@ public class StudentView {
     }
     public void modify1(ActionEvent event) {
         System.out.println("deja vu");
-        AnchorPane root;
+       AnchorPane root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifyStudent.fxml"));
-//            root = FXMLLoader.load(getClass().getResource("ScoreWindow.fxml"));
             root = loader.load();
             Stage window = new Stage();
             window.setScene(new Scene(root));
             ModifyStudent controller = loader.getController();
-            //controller.setUserName(username);
+            controller.setUserName(username);
             window.setTitle("Modify personal information");
-            window.show();
+            window.showAndWait();
+            setStatus(username);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-//    public void Modify1(ActionEvent event) {
-//
-//        AnchorPane root;
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifyStudent.fxml"));
-////            root = FXMLLoader.load(getClass().getResource("ScoreWindow.fxml"));
-//            root = loader.load();
-//            Stage window = new Stage();
-//            window.setScene(new Scene(root));
-////            ScoreWindowController controller = loader.getController();
-//            window.setTitle("Score");
-//            window.show();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
 
 
     public void getStudentInfo(String username){
@@ -98,11 +85,10 @@ public class StudentView {
             }
 
             connection.close();
-            //return students;
+
         } catch (SQLException e) {
             e.printStackTrace();
 
-            //return students;
         }
     }
     public void watchGPA(ActionEvent event) {
@@ -110,13 +96,11 @@ public class StudentView {
         AnchorPane root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ScoreWindow.fxml"));
-//            root = FXMLLoader.load(getClass().getResource("ScoreWindow.fxml"));
             root = loader.load();
             Stage window = new Stage();
             window.setScene(new Scene(root));
             ScoreWindowController controller = loader.getController();
             controller.setUserName(username);
-
             window.setTitle("Score");
             window.show();
 
