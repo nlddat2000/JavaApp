@@ -45,7 +45,6 @@ public class ModifyStudent {
             if (!name.getText().equals("")){
                 String sql  = "UPDATE Student SET name = '" + name.getText() + "' WHERE username = '" + uname + "'";
                 statement.executeUpdate(sql);
-                System.out.println(name.getText());
             }
             if (!gender.getText().equals("")){
                 String sql  = "UPDATE Student SET gender = '" + gender.getText() + "' WHERE username = '" + uname +"'";

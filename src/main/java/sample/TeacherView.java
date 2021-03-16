@@ -104,7 +104,6 @@ public class TeacherView {
             Connection connection = DriverManager.getConnection(url, "sa", "123");
 
             String sql = "SELECT * FROM student join score on student.username = score.username where score.tusername = '" + tusername + "'";
-            System.out.println(sql);
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sql);
 

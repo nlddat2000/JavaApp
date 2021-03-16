@@ -107,9 +107,14 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="GPA" layoutX="602.0" layoutY="309.0" mnemonicParsing="false" onAction="#watchGPA" prefHeight="43.0" prefWidth="126.0" text="View Score" AnchorPane.topAnchor="300.0" />
-      <Button layoutX="602.0" layoutY="224.0" mnemonicParsing="false" onAction="#modify1" prefHeight="43.0" prefWidth="126.0" text="Modify " AnchorPane.topAnchor="220.0" />
-      <Button layoutX="602.0" layoutY="389.0" mnemonicParsing="false" onAction="#changePass" prefHeight="43.0" prefWidth="126.0" text="Change password" AnchorPane.topAnchor="380.0" />
+      <Button fx:id="GPA" layoutX="602.0" layoutY="309.0" mnemonicParsing="false" mouseTransparent="true" onAction="#watchGPA" prefHeight="43.0" prefWidth="126.0" text="View Score" AnchorPane.topAnchor="300.0" />
+      <Button layoutX="602.0" layoutY="224.0" mnemonicParsing="false" mouseTransparent="true" onAction="#modify1" prefHeight="43.0" prefWidth="126.0" text="Modify " AnchorPane.topAnchor="220.0" />
+      <Button layoutX="602.0" layoutY="389.0" mnemonicParsing="false" mouseTransparent="true" onAction="#changePass" prefHeight="43.0" prefWidth="126.0" text="Change password" AnchorPane.topAnchor="380.0" />
       <Button layoutX="602.0" layoutY="464.0" mnemonicParsing="false" onAction="#Logout" prefHeight="43.0" prefWidth="126.0" text="Log out" AnchorPane.topAnchor="460.0" />
+      <Label layoutX="253.0" layoutY="77.0" text="Information of Student" textAlignment="JUSTIFY">
+         <font>
+            <Font name=".VnCourier New Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

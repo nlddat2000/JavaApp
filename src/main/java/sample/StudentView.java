@@ -34,7 +34,6 @@ public class StudentView {
 
     public void setStatus(String loginUsername) {
         username = loginUsername;
-        System.out.println("Accepted");
         getStudentInfo(username);
     }
     public void modify1() {
@@ -67,7 +66,6 @@ public class StudentView {
             ResultSet result = statement.executeQuery(sql);
 
             while (result.next()) {
-                System.out.println(result.getString("Name"));
                 name.setText(result.getString("Name"));
                 gender.setText(result.getString("Gender"));
                 birthday.setText(result.getString("BirthDay"));
