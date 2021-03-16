@@ -26,6 +26,21 @@
                 <TextField fx:id="placeOfBirth" promptText="PlaceOfBirth" style="-fx-background-color: #C6ECFF;" />
                 <TextField fx:id="intake" promptText="Intake" style="-fx-background-color: #C6ECFF;" />
             <TextField fx:id="score" promptText="Score" style="-fx-background-color: #C6ECFF;" />
+            <JFXButton buttonType="RAISED" onAction="#exit" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Exit">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets left="15.0" top="100.0" />
+               </VBox.margin>
+            </JFXButton>
             </children>
             <BorderPane.margin>
                 <Insets />

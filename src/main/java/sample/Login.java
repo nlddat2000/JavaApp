@@ -120,4 +120,7 @@ public class Login {
             e.printStackTrace();
         }
     }
+    public void exit() {
+        System.exit(0);
+    }
 }

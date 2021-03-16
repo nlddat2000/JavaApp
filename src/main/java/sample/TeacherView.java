@@ -526,5 +526,8 @@ public class TeacherView {
         }
         return false;
     }
+    public void exit() {
+        System.exit(0);
+    }
 }
 
