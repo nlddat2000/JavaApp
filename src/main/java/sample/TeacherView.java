@@ -94,12 +94,6 @@ public class TeacherView {
         tableOfStudent.setItems(getStudents());
     }
 
-    //Show table
-//    public void initialize() {
-//        setStatus(tusername);
-//        updateTable();
-//    }
-
     //Get data from SQLServer
     public static ObservableList<StudentInfo> getStudents() {
         ObservableList<StudentInfo> students = FXCollections.observableArrayList();

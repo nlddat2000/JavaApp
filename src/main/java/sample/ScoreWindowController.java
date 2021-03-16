@@ -73,7 +73,6 @@ public class ScoreWindowController implements  Initializable{
 
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
 
     }

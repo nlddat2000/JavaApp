@@ -51,7 +51,6 @@ public class StudentView {
             setStatus(username);
 
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

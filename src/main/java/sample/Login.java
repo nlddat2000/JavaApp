@@ -26,17 +26,6 @@ public class Login {
     @FXML public Button changePasswordButton;
     public void login(ActionEvent event ) throws IOException {
 
-//        if (loginUsername.getText().equals("fa") && loginPassword.getText().equals("1234")) {
-//
-//            System.out.println(loginUsername.getText() + loginPassword.getText());
-//            Parent root;
-//            root = FXMLLoader.load(getClass().getResource("TeacherView.fxml"));
-//            Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
-//            window.setScene(new Scene(root));
-//            window.setTitle("Teacher's view");
-//            window.show();
-//        }
-
         int i = 0;
 
         try {
@@ -129,18 +118,5 @@ public class Login {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("ChangePass.fxml"));
-////            root = FXMLLoader.load(getClass().getResource("ScoreWindow.fxml"));
-//            root = loader.load();
-//            Stage window = new Stage();
-//            window.setScene(new Scene(root));
-//            ChangePass controller = loader.getController();
-//            //controller.setUserName(username);
-//            window.setTitle("Change Password");
-//            window.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 }

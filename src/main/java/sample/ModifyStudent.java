@@ -2,15 +2,11 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.*;
 import java.text.ParseException;
@@ -35,10 +31,11 @@ public class ModifyStudent {
         this.userName = userName;
     }
     public void confirm(ActionEvent event) throws IOException {
-        if (birthday.getText().equals("")) {
+        System.out.println(birthday.getText());
+        if (!birthday.getText().equals("")) {
             Checkdate(birthday.getText());
         }
-        if (!checkGender(gender.getText())) return;
+        if (!checkGender(gender.getText())) {return;}
 
         try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=Student_Info";
