@@ -424,6 +424,7 @@ public class TeacherView {
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(new Scene(root));
+        window.centerOnScreen();
         window.setTitle("Login");
         window.show();
 

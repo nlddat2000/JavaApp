@@ -33,7 +33,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@exit.png" />
+                        <Image url="@Pictures/delete-button.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -83,7 +83,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@insert.png" />
+                        <Image url="@Pictures/insert.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -98,7 +98,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@search-button.png" />
+                        <Image url="@Pictures/search-button.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -113,7 +113,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@edit-button.png" />
+                        <Image url="@Pictures/edit-button.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -128,7 +128,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@delete-button.png" />
+                        <Image url="@Pictures/trash.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -143,7 +143,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@visibility-button.png" />
+                        <Image url="@Pictures/visibility-button.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -158,7 +158,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@reload.png" />
+                        <Image url="@Pictures/reload.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -173,7 +173,7 @@
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@clear-button.png" />
+                        <Image url="@Pictures/clear-button.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -183,12 +183,12 @@
             </JFXButton>
             <JFXButton ellipsisString="" onAction="#Logout" prefHeight="65.0" prefWidth="52.0">
                <VBox.margin>
-                  <Insets bottom="10.0" left="50.0" top="200.0" />
+                  <Insets bottom="10.0" left="55.0" top="230.0" />
                </VBox.margin>
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@log-out.png" />
+                        <Image url="@Pictures/log-out.png" />
                      </image>
                   </ImageView>
                </graphic>

@@ -39,12 +39,12 @@
             </Text>
             <ImageView fitHeight="27.0" fitWidth="35.0" layoutX="320.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@article.png" />
+                  <Image url="@Pictures/article.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="27.0" fitWidth="35.0" layoutX="243.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@download.jpg" />
+                  <Image url="@Pictures/download.jpg" />
                </image>
             </ImageView>
          </children>
@@ -56,7 +56,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@exit.png" />
+                  <Image url="@Pictures/delete-button.png" />
                </image>
             </ImageView>
          </graphic>
