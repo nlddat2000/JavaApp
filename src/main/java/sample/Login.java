@@ -86,6 +86,7 @@ public class Login {
                 controller.setStatus(loginUsername.getText());
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(new Scene(root));
+                window.centerOnScreen();
                 window.setTitle("Teacher's view");
                 window.show();
             }
@@ -99,7 +100,6 @@ public class Login {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("No u");
         }
 
     }
@@ -111,6 +111,7 @@ public class Login {
             root = loader.load();
             Stage window = new Stage();
             window.setScene(new Scene(root));
+            window.centerOnScreen();
             //ScoreWindowController controller = loader.getController();
             window.setTitle("Change Password");
             window.showAndWait();

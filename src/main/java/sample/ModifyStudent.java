@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -36,6 +37,7 @@ public class ModifyStudent {
             Checkdate(birthday.getText());
         }
         if (!checkGender(gender.getText())) {return;}
+        if (!confirmation("change")) return;
 
         try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=Student_Info";
@@ -97,6 +99,14 @@ public class ModifyStudent {
             return false;
         }
         return true;
+    }
+    public boolean confirmation(String s){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Confirm " + s + "? (old data will be lost after " + s + ")", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.YES) {
+            return true;
+        }
+        return false;
     }
 
 }

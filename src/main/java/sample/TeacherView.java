@@ -8,11 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -141,29 +138,30 @@ public class TeacherView {
 
     //Delete row
     public void delete() {
+
         ObservableList<StudentInfo> studentSelected, allStudent;
         allStudent = tableOfStudent.getItems();
         studentSelected = tableOfStudent.getSelectionModel().getSelectedItems();
-
         try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=Student_Info;";
 
             Connection connection = DriverManager.getConnection(url, "sa", "123");
             for (int i = 0; i < studentSelected.size(); i++) {
-                String sql0 = "DELETE FROM Score WHERE  Username = ('" + studentSelected.get(i).getUsername() + "');";
-                String sql = "DELETE FROM Student WHERE  Username = ('" + studentSelected.get(i).getUsername() + "');";
+                String sql0 = "DELETE FROM Score WHERE  Username = ('" + studentSelected.get(i).getUsername() + "') " + " AND tusername =  '" + tusername + "'";
+                //String sql = "DELETE FROM Student WHERE  Username = ('" + studentSelected.get(i).getUsername() + "');";
                 Statement statement = connection.createStatement();
-                System.out.println(sql0+"\n"+sql);
+                System.out.println(sql0);
+                if (!confirmation("delete")) return;
                 statement.executeUpdate(sql0);
-                statement.executeUpdate(sql);
+                //statement.executeUpdate(sql);
 
                 connection.close();
 
-                allStudent.remove(studentSelected.get(i));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        updateTable();
     }
 
     public void insert() {
@@ -269,6 +267,7 @@ public class TeacherView {
                 statement.executeUpdate(sql);
                 String sql1 = "UPDATE Score SET score = " + new_score + " WHERE username = '" + new_username + "' AND tusername = '" + tusername + "'";
                 System.out.println(sql1);
+                if (!confirmation("change")) return;
                 statement.executeUpdate(sql1);
 
                 updateTable();
@@ -298,7 +297,7 @@ public class TeacherView {
             window.setScene(new Scene(root));
             ScoreWindowController controller = loader.getController();
             controller.setUserName(currentUserName);
-
+            window.centerOnScreen();
             window.setTitle("Modify personal information");
             window.show();
 
@@ -519,6 +518,13 @@ public class TeacherView {
         }
         return true;
     }
-
+    public boolean confirmation(String s){
+        Alert alert = new Alert(AlertType.CONFIRMATION, "Confirm " + s + "? (old data will be lost after " + s + ")", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.YES) {
+            return true;
+        }
+        return false;
+    }
 }
 

@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -31,29 +32,12 @@ public class StudentView {
     @FXML Label major;
     @FXML Label placeofbirth;
     @FXML Label intake;
-
+    @FXML Button view;
     public void setStatus(String loginUsername) {
         username = loginUsername;
         getStudentInfo(username);
+        System.out.println(username);
     }
-    public void modify1() {
-       AnchorPane root;
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifyStudent.fxml"));
-            root = loader.load();
-            Stage window = new Stage();
-            window.setScene(new Scene(root));
-            ModifyStudent controller = loader.getController();
-            controller.setUserName(username);
-            window.setTitle("Modify personal information");
-            window.showAndWait();
-            setStatus(username);
-
-        } catch (IOException e) {
-        }
-    }
-
-
     public void getStudentInfo(String username){
 
         try {
@@ -97,11 +81,33 @@ public class StudentView {
             ScoreWindowController controller = loader.getController();
             controller.setUserName(username);
             window.setTitle("Score");
+            window.centerOnScreen();
             window.show();
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void modify1() {
+       AnchorPane root;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifyStudent.fxml"));
+            root = loader.load();
+            Stage window = new Stage();
+            window.setScene(new Scene(root));
+            ModifyStudent controller = loader.getController();
+            controller.setUserName(username);
+            window.setTitle("Modify personal information");
+            window.showAndWait();
+            setStatus(username);
+
+        } catch (IOException e) {
+        }
+    }
+    public void cancel(ActionEvent event) throws IOException {
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.close();
     }
 
 

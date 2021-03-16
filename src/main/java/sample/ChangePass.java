@@ -3,6 +3,7 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.AccessibleAction;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,6 +24,10 @@ public class ChangePass {
     @FXML PasswordField password;
     @FXML PasswordField new_password;
     @FXML PasswordField re_new_password;
+    public  void cancel(ActionEvent event){
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.close();
+    }
     public void confirm(ActionEvent event) throws IOException{
         int check=0;
         //if (new_password.getText().equals(re_new_password.getText())) {
