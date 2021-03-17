@@ -42,7 +42,6 @@ public class StudentView {
     public void setStatus(String loginUsername) {
         username = loginUsername;
         getStudentInfo(username);
-        System.out.println(username);
     }
     public void getStudentInfo(String username){
 

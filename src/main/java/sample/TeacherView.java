@@ -524,6 +524,7 @@ public class TeacherView {
             alert.showAndWait();
         }
     }
+
     public boolean checkGender(String g) {
         if (!g.equals("male") && !g.equals("female") && !g.equals("")) {
             Alert alert = new Alert(AlertType.ERROR);

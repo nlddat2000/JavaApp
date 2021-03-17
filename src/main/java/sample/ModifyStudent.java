@@ -32,13 +32,16 @@ public class ModifyStudent {
         this.userName = userName;
     }
     public void confirm(ActionEvent event) throws IOException {
-        System.out.println(birthday.getText());
         if (!birthday.getText().equals("")) {
-            Checkdate(birthday.getText());
+            if (!Checkdate(birthday.getText())) return;
         }
-        if (!checkGender(gender.getText())) {return;}
+        if (!gender.getText().equals("")) {
+            if (!checkGender(gender.getText())) return;
+        }
+        if (!email.getText().equals("")) {
+           if (!checkEmail(email.getText())) return;
+        }
         if (!confirmation("change")) return;
-
         try {
             String url = "jdbc:sqlserver://localhost:1433;databaseName=Student_Info";
             Connection connection = DriverManager.getConnection(url, "sa", "123");
@@ -77,15 +80,17 @@ public class ModifyStudent {
         }
 
     }
-    public void Checkdate(String ngay){
+    public boolean Checkdate(String ngay){
         try {
             Date date = new SimpleDateFormat("YYYY-MM-DD").parse(ngay);
+            return true;
         } catch (ParseException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Cannot execute function");
             alert.setContentText("Please insert the right format for date (YYYY-MM-DD)");
             alert.showAndWait();
+            return false;
         }
 
     }
@@ -107,6 +112,38 @@ public class ModifyStudent {
             return true;
         }
         return false;
+    }
+    public boolean checkEmail(String email) {
+        if (email.charAt(0) == '@' || email.charAt(email.length() - 1) == '@') {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Cannot execute function");
+            alert.setContentText("Please insert the right format for email (*@*)");
+            alert.showAndWait();
+            return false;
+        }
+        boolean check = false;
+        for (int i = 1; i < email.length() - 1; i++) {
+            if (email.charAt(i) == '@') {
+                if (check) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Cannot execute function");
+                    alert.setContentText("Please insert the right format for email (*@*)");
+                    alert.showAndWait();
+                    return false;
+                }
+                check = true;
+            }
+        }
+        if (!check) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Cannot execute function");
+            alert.setContentText("Please insert the right format for email (*@*)");
+            alert.showAndWait();
+        }
+        return check;
     }
 
 }

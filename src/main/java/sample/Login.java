@@ -4,19 +4,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
+import javafx.scene.input.KeyEvent;
 import java.io.IOException;
 import java.sql.*;
+
+/**
+ *
+ */
 
 public class Login {
     @FXML
@@ -24,6 +28,7 @@ public class Login {
     @FXML private PasswordField loginPassword;
     @FXML public Button loginButton;
     @FXML public Button changePasswordButton;
+
     public void login(ActionEvent event ) throws IOException {
 
         int i = 0;
@@ -64,7 +69,6 @@ public class Login {
                 }
             }
 
-
             connection.close();
 
             if (i == 1) {
@@ -74,8 +78,9 @@ public class Login {
                 StudentView controller = loader.getController();
                 controller.setStatus(loginUsername.getText());
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                window.centerOnScreen();
+
                 window.setScene(new Scene(root));
+                window.centerOnScreen();
                 window.setTitle("Student's view");
                 window.show();
             }
