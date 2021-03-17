@@ -35,7 +35,7 @@ public class StudentView {
 
     @FXML Button view;
     @FXML Button mod;
-    @FXML Button changP;
+    @FXML Button changeP;
     @FXML Button ext;
     @FXML Button lgt;
 
@@ -149,7 +149,7 @@ public class StudentView {
 
     public void disableButtons(boolean b) {
         view.setDisable(b);
-        changP.setDisable(b);
+        changeP.setDisable(b);
         mod.setDisable(b);
         ext.setDisable(b);
         lgt.setDisable(b);
