@@ -15,8 +15,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.sql.*;
 import java.text.ParseException;
@@ -71,9 +71,35 @@ public class TeacherView {
     TextField intake;
     @FXML
     TextField score;
+
+    @FXML Button insrt;
+    @FXML Button mod;
+    @FXML Button del;
+    @FXML Button scr;
+    @FXML Button rload;
+    @FXML Button chrt;
+    @FXML Button clr;
+    @FXML Button ext;
+    @FXML Button srch;
+    @FXML Button lgt;
+
     int index = -1;
     private String currentUserName;
     private static String tusername;
+    public static int[] rangeScore = {0, 0, 0, 0};
+
+    public void disableButton(boolean b) {
+        insrt.setDisable(b);
+        mod.setDisable(b);
+        del.setDisable(b);
+        scr.setDisable(b);
+        rload.setDisable(b);
+        chrt.setDisable(b);
+        clr.setDisable(b);
+        ext.setDisable(b);
+        srch.setDisable(b);
+        lgt.setDisable(b);
+    }
 
     public void updateTable() {
         nameColumn.setCellValueFactory(new PropertyValueFactory<StudentInfo, String>("Name"));
@@ -87,7 +113,6 @@ public class TeacherView {
         placeOfBirthColumn.setCellValueFactory(new PropertyValueFactory<StudentInfo, String>("PlaceOfBirth"));
         intakeColumn.setCellValueFactory(new PropertyValueFactory<StudentInfo, Integer>("Intake"));
         scoreColumn.setCellValueFactory(new PropertyValueFactory<StudentInfo, Float>("Score"));
-
         tableOfStudent.setItems(getStudents());
     }
 
@@ -101,6 +126,7 @@ public class TeacherView {
             Connection connection = DriverManager.getConnection(url, "sa", "123");
 
             String sql = "SELECT * FROM student join score on student.username = score.username where score.tusername = '" + tusername + "'";
+            System.out.println(sql);
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sql);
 
@@ -118,10 +144,13 @@ public class TeacherView {
                 int Intake = result.getInt("Intake");
                 Float Score = result.getFloat("Score");
 
+                if (Score == 5) rangeScore[0]++;
+                if (Score >=1 && Score <=2) rangeScore[1]++;
+                if (Score >2 && Score <=3) rangeScore[2]++;
+                if (Score >3 && Score <=4) rangeScore[3]++;
+
                 students.add(new StudentInfo(Name, Gender, BirthDay, Address, Username, Email, PassWord, Major, PlaceOfBirth, Intake, Score));
-
             }
-
             connection.close();
 
             return students;
@@ -166,51 +195,46 @@ public class TeacherView {
 
     public void insert() {
         StudentInfo student = new StudentInfo();
-        if (!birthday.getText().equals("")) {
-            Checkdate(birthday.getText());
-        }
-        if (!score.getText().equals("")) {
-            if (!isScore(score.getText())) return;
-        }
-        if (!intake.getText().equals("")) {
-            checkInt(intake.getText());
-        }
-        if (!checkGender(gender.getText())) return;
-
-        student.setName(name.getText());
-        student.setGender(gender.getText());
-        student.setBirthday(birthday.getText());
-        student.setAddress(address.getText());
-        student.setUsername(username.getText());
-        student.setEmail(email.getText());
-        student.setPassword(password.getText());
-        student.setMajor(major.getText());
-        student.setPlaceOfBirth(placeOfBirth.getText());
-        student.setIntake(Integer.parseInt(intake.getText()));
-        student.setScore(Float.parseFloat(score.getText()));
+//        if (!birthday.getText().equals("")) {
+//            Checkdate(birthday.getText());
+//        }
+//        if (!score.getText().equals("")) {
+//            if (!isScore(score.getText())) return;
+//        }
+//        if (!intake.getText().equals("")) {
+//            checkInt(intake.getText());
+//        }
+//        if (!checkGender(gender.getText())) return;
+//
+//        student.setName(name.getText());
+//        student.setGender(gender.getText());
+//        student.setBirthday(birthday.getText());
+//        student.setAddress(address.getText());
+//        student.setUsername(username.getText());
+//        student.setEmail(email.getText());
+//        student.setPassword(password.getText());
+//        student.setMajor(major.getText());
+//        student.setPlaceOfBirth(placeOfBirth.getText());
+//        student.setIntake(Integer.parseInt(intake.getText()));
+//        student.setScore(Float.parseFloat(score.getText()));
+        AnchorPane root;
         try {
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=Student_Info;";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("insertStudent.fxml"));
+//            root = FXMLLoader.load(getClass().getResource("ScoreWindow.fxml"));
+            root = loader.load();
+            Stage window = new Stage();
+            window.setScene(new Scene(root));
+            insertStudent controller = loader.getController();
+            controller.getuserName(tusername);
+            window.initStyle(StageStyle.UNDECORATED);
+            disableButton(true);
+            window.showAndWait();
+            disableButton(false);
+            updateTable();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+    }
 
-            Connection connection = DriverManager.getConnection(url, "sa", "123");
-
-            String sql = "INSERT INTO Student VALUES ('" + student.getName() + "', '" + student.getGender() + "', '" + student.getBirthday() + "', '" + student.getAddress() + "', '" + student.getUsername() + "', '" + student.getEmail() + "', '" + student.getPassword() + "', '" + student.getMajor() + "', '" + student.getPlaceOfBirth() + "', " + student.getIntake() + ",1)";
-            System.out.println(sql);
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(sql);
-            String sql1 = "INSERT INTO Score VALUES ('" + student.getUsername() + "','" + tusername + "'," + student.getScore();
-            statement.executeUpdate(sql1);
-
-            tableOfStudent.getItems().add(student);
-            connection.close();
-        } catch (SQLException e) {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Insert Error");
-            alert.setHeaderText("Failed to insert new student");
-            alert.setContentText("The username has already exist");
-
-            alert.showAndWait();
-
-        }
     }
 
     public void getSelected(MouseEvent event) {
@@ -236,57 +260,27 @@ public class TeacherView {
 
 
     public void modify() {
+        if (username.getText().equals("")) return;
+        AnchorPane root;
         try {
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=Student_Info;";
-            Connection connection = DriverManager.getConnection(url, "sa", "123");
-
-            if (username.getText().equals(currentUserName)) {
-                String new_name = name.getText();
-                String new_gender = gender.getText();
-                if (!birthday.getText().equals("")) {
-                    Checkdate(birthday.getText());
-                }
-                if (!score.getText().equals("")) {
-                    if (!isScore(score.getText())) return;
-                }
-                if (!intake.getText().equals("")) {
-                    checkInt(intake.getText());
-                }
-                if (!checkGender(gender.getText())) return;
-
-                String new_birthday = birthday.getText();
-                String new_address = address.getText();
-                String new_username = username.getText();
-                String new_major = major.getText();
-                String new_placeOfBirth = placeOfBirth.getText();
-                String new_intake = intake.getText();
-                String new_score = score.getText();
-                String sql = "UPDATE Student SET Name = '" + new_name + "', Gender = '" + new_gender + "', Birthday = '" + new_birthday + "', Address = '" + new_address + "', Major = '" + new_major + "', PlaceOfBirth = '" + new_placeOfBirth + "', Intake = '" + new_intake + "'  WHERE Username = " + "'" + new_username + "'";
-                System.out.println(sql);
-                Statement statement = connection.createStatement();
-                statement.executeUpdate(sql);
-                String sql1 = "UPDATE Score SET score = " + new_score + " WHERE username = '" + new_username + "' AND tusername = '" + tusername + "'";
-                System.out.println(sql1);
-                if (!confirmation("change")) return;
-                statement.executeUpdate(sql1);
-
-                updateTable();
-            } else {
-                System.out.println("Cannot modify username");
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("Update Error");
-                alert.setHeaderText("Failed to update");
-                alert.setContentText("Cannot modify username");
-
-                alert.showAndWait();
-            }
-
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifyScore.fxml"));
+//            root = FXMLLoader.load(getClass().getResource("ScoreWindow.fxml"));
+            root = loader.load();
+            Stage window = new Stage();
+            window.setScene(new Scene(root));
+            ModifyScore controller = loader.getController();
+            controller.getuserName(username.getText(),tusername);
+            window.initStyle(StageStyle.UNDECORATED);
+            disableButton(true);
+            window.showAndWait();
+            disableButton(false);
+            updateTable();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
     }
     public void score(ActionEvent event) {
+        if (username.getText().equals("")) return;
         System.out.println("deja vu");
         AnchorPane root;
         try {
@@ -298,8 +292,10 @@ public class TeacherView {
             ScoreWindowController controller = loader.getController();
             controller.setUserName(currentUserName);
             window.centerOnScreen();
-            window.setTitle("Modify personal information");
-            window.show();
+            window.initStyle(StageStyle.UNDECORATED);
+            disableButton(true);
+            window.showAndWait();
+            disableButton(false);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -388,7 +384,6 @@ public class TeacherView {
 
             try {
                 String url = "jdbc:sqlserver://localhost:1433;databaseName=Student_Info;";
-
                 Connection connection = DriverManager.getConnection(url, "sa", "123");
 
                 Statement statement = connection.createStatement();
@@ -438,7 +433,28 @@ public class TeacherView {
             window.setScene(new Scene(root));
             //ScoreWindowController controller = loader.getController();
             window.setTitle("Change Password");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void Graph(ActionEvent event) {
+        System.out.println("deja vu");
+        Parent root;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Graph.fxml"));
+//            root = FXMLLoader.load(getClass().getResource("ScoreWindow.fxml"));
+            root = loader.load();
+            Stage window = new Stage();
+            window.setScene(new Scene(root));
+            Graph controller = loader.getController();
+            controller.setRangeScore(rangeScore, window);
+            window.centerOnScreen();
+            window.setTitle("Score chart");
+            disableButton(true);
             window.showAndWait();
+            disableButton(false);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -521,7 +537,9 @@ public class TeacherView {
     }
     public boolean confirmation(String s){
         Alert alert = new Alert(AlertType.CONFIRMATION, "Confirm " + s + "? (old data will be lost after " + s + ")", ButtonType.YES, ButtonType.NO);
+        disableButton(true);
         alert.showAndWait();
+        disableButton(false);
         if (alert.getResult() == ButtonType.YES) {
             return true;
         }

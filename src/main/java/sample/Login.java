@@ -74,6 +74,7 @@ public class Login {
                 StudentView controller = loader.getController();
                 controller.setStatus(loginUsername.getText());
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.centerOnScreen();
                 window.setScene(new Scene(root));
                 window.setTitle("Student's view");
                 window.show();

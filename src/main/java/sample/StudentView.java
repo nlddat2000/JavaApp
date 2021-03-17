@@ -32,7 +32,13 @@ public class StudentView {
     @FXML Label major;
     @FXML Label placeofbirth;
     @FXML Label intake;
+
     @FXML Button view;
+    @FXML Button mod;
+    @FXML Button changP;
+    @FXML Button ext;
+    @FXML Button lgt;
+
     public void setStatus(String loginUsername) {
         username = loginUsername;
         getStudentInfo(username);
@@ -71,7 +77,7 @@ public class StudentView {
 
         }
     }
-    public void watchGPA() {
+    public void watchGPA(ActionEvent event) {
         AnchorPane root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ScoreWindow.fxml"));
@@ -82,8 +88,9 @@ public class StudentView {
             controller.setUserName(username);
             window.setTitle("Score");
             window.centerOnScreen();
-            window.show();
-
+            disableButtons(true);
+            window.showAndWait();
+            disableButtons(false);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -99,7 +106,9 @@ public class StudentView {
             ModifyStudent controller = loader.getController();
             controller.setUserName(username);
             window.setTitle("Modify personal information");
+            disableButtons(true);
             window.showAndWait();
+            disableButtons(false);
             setStatus(username);
 
         } catch (IOException e) {
@@ -120,7 +129,9 @@ public class StudentView {
             window.setScene(new Scene(root));
             //ScoreWindowController controller = loader.getController();
             window.setTitle("Change Password");
+            disableButtons(true);
             window.showAndWait();
+            disableButtons(false);
             setStatus(username);
         } catch (IOException e) {
             e.printStackTrace();
@@ -135,6 +146,15 @@ public class StudentView {
         window.show();
 
     }
+
+    public void disableButtons(boolean b) {
+        view.setDisable(b);
+        changP.setDisable(b);
+        mod.setDisable(b);
+        ext.setDisable(b);
+        lgt.setDisable(b);
+    }
+
     public void exit() {
         System.exit(0);
     }

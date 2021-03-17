@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: rgb(200, 150, 133);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentView">
+<AnchorPane fx:id="changeP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="800.0" style="-fx-background-color: rgb(200, 150, 133);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentView">
    <children>
       <Label layoutX="37.0" layoutY="536.0" text="Intake:" textFill="#176a93" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="530.0">
          <font>
@@ -114,7 +114,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="590.0" layoutY="200.0" onAction="#modify1" prefHeight="43.0" prefWidth="126.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Modify" textFill="#176a93">
+      <JFXButton fx:id="mod" buttonType="RAISED" layoutX="590.0" layoutY="200.0" onAction="#modify1" prefHeight="43.0" prefWidth="126.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Modify" textFill="#176a93">
          <font>
             <Font size="14.0" />
          </font>
@@ -155,16 +155,16 @@
             <Image url="@Pictures/male-user-shadow.png" />
          </image>
       </ImageView>
-      <JFXButton ellipsisString="" layoutX="689.0" layoutY="511.0" onAction="#Logout" prefHeight="65.0" prefWidth="52.0" AnchorPane.leftAnchor="740.0">
+      <JFXButton ellipsisString="" layoutX="689.0" layoutY="561.0" onAction="#Logout" prefHeight="65.0" prefWidth="52.0" AnchorPane.leftAnchor="689.0">
          <graphic>
-            <ImageView fitHeight="34.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="lgt" fitHeight="34.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/log-out.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="621.0" layoutY="529.0" onAction="#exit" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Exit">
+      <JFXButton fx:id="ext" buttonType="RAISED" layoutX="40.0" layoutY="578.0" onAction="#exit" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Exit">
          <font>
             <Font size="14.0" />
          </font>

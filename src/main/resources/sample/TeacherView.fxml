@@ -26,7 +26,22 @@
                 <TextField fx:id="placeOfBirth" promptText="PlaceOfBirth" style="-fx-background-color: #C6ECFF;" />
                 <TextField fx:id="intake" promptText="Intake" style="-fx-background-color: #C6ECFF;" />
             <TextField fx:id="score" promptText="Score" style="-fx-background-color: #C6ECFF;" />
-            <JFXButton buttonType="RAISED" onAction="#exit" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Exit">
+            <JFXButton fx:id="srch" buttonType="RAISED" onAction="#search" prefHeight="30.0" prefWidth="95.0" ripplerFill="#80717100" style="-fx-background-color: #D3D3D3;" text="Search ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Pictures/search-button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="ext" buttonType="RAISED" onAction="#exit" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Exit">
                <font>
                   <Font size="14.0" />
                </font>
@@ -38,7 +53,7 @@
                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets left="15.0" top="100.0" />
+                  <Insets left="10.0" top="45.0" />
                </VBox.margin>
             </JFXButton>
             </children>
@@ -76,7 +91,7 @@
    <right>
       <VBox layoutX="500.0" layoutY="200.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton buttonType="RAISED" onAction="#insert" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Insert  ">
+            <JFXButton fx:id="insrt" buttonType="RAISED" onAction="#insert" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Insert  ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -91,22 +106,7 @@
                   <Insets left="10.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#search" prefHeight="30.0" prefWidth="95.0" ripplerFill="#80717100" style="-fx-background-color: #D3D3D3;" text="Search ">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Pictures/search-button.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets left="10.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#modify" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Modify">
+            <JFXButton fx:id="mod" buttonType="RAISED" onAction="#modify" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Modify">
                <font>
                   <Font size="14.0" />
                </font>
@@ -121,7 +121,7 @@
                   <Insets left="10.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#delete" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Delete ">
+            <JFXButton fx:id="del" buttonType="RAISED" onAction="#delete" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Delete ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -136,7 +136,7 @@
                   <Insets left="10.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#score" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Score  ">
+            <JFXButton fx:id="scr" buttonType="RAISED" onAction="#score" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Score  ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -151,7 +151,7 @@
                   <Insets left="10.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#updateTable" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Reload">
+            <JFXButton fx:id="rload" buttonType="RAISED" onAction="#updateTable" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Reload">
                <font>
                   <Font size="14.0" />
                </font>
@@ -166,7 +166,22 @@
                   <Insets left="10.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton buttonType="RAISED" onAction="#Blank" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Clear   ">
+            <JFXButton fx:id="chrt" buttonType="RAISED" onAction="#Graph" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Chart  ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Pictures/pie-chart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="clr" buttonType="RAISED" onAction="#Blank" prefHeight="30.0" prefWidth="95.0" ripplerFill="#453b3b00" style="-fx-background-color: #D3D3D3;" text="Clear   ">
                <font>
                   <Font size="14.0" />
                </font>
@@ -181,9 +196,9 @@
                   <Insets left="10.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton ellipsisString="" onAction="#Logout" prefHeight="65.0" prefWidth="52.0">
+            <JFXButton fx:id="lgt" ellipsisString="" onAction="#Logout" prefHeight="65.0" prefWidth="52.0">
                <VBox.margin>
-                  <Insets bottom="10.0" left="55.0" top="230.0" />
+                  <Insets bottom="10.0" left="55.0" top="220.0" />
                </VBox.margin>
                <graphic>
                   <ImageView fitHeight="34.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
