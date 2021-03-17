@@ -39,7 +39,7 @@ public class ChangePass {
             ResultSet result = statement.executeQuery(sql);
 
             String f = "UPDATE Student Set Password = '" + new_password.getText() + "' WHERE Username = '" + username.getText() + "';";
-            System.out.println(f);
+
             while (result.next()) {
                 String Username = result.getString("Username");
                 String Email = result.getString("Email");
@@ -47,7 +47,7 @@ public class ChangePass {
                 if (Username.equals(username.getText()) && Email.equals(email.getText()) && PassWord.equals(password.getText())) {
                     if (new_password.getText().equals(re_new_password.getText())) {
                         String sql1 = "UPDATE Student Set Password = '" + new_password.getText() + "' WHERE Username = '" + username.getText() + "';";
-                        System.out.println(sql1);
+
                         statement.execute(sql1);
                         check=1;
                         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

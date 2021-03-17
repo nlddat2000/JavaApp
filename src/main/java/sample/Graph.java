@@ -16,7 +16,6 @@ public class Graph {
 
         this.rangeScore = rangeScore;
         for (int i=0; i<4; i++) {
-            System.out.println(rangeScore[i]);
         }
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(

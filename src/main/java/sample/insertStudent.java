@@ -19,7 +19,6 @@ public class insertStudent {
     private String tusername;
     public void getuserName(String tusername) {
         this.tusername = tusername;
-        System.out.println("fa");
     }
 
     public void insert(ActionEvent event) {

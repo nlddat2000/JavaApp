@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="179.0" prefWidth="202.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ModifyScore">
+<AnchorPane prefHeight="179.0" prefWidth="288.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ModifyScore">
    <children>
       <JFXButton buttonType="RAISED" layoutX="36.0" layoutY="135.0" onAction="#setScore" style="-fx-background-color: #D3D3D3;" text="Update" />
-      <JFXTextField fx:id="score" layoutX="40.0" layoutY="77.0" prefHeight="25.0" prefWidth="128.0" promptText="Update student score" style="-fx-background-color: #C6ECFF;" />
-      <JFXButton buttonType="RAISED" layoutX="116.0" layoutY="135.0" onAction="#cancel" style="-fx-background-color: #D3D3D3;" text="Cancel" />
+      <JFXTextField fx:id="score" layoutX="40.0" layoutY="77.0" prefHeight="25.0" prefWidth="218.0" promptText="Update student score" style="-fx-background-color: #C6ECFF;" />
+      <JFXButton buttonType="RAISED" layoutX="198.0" layoutY="135.0" onAction="#cancel" style="-fx-background-color: #D3D3D3;" text="Cancel" />
       <Label fx:id="header" layoutX="40.0" layoutY="25.0" text="Label">
          <font>
             <Font name="System Bold" size="14.0" />

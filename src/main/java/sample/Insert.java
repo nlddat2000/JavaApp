@@ -19,6 +19,5 @@ public class Insert {
     @FXML TextField insertIntake;
     @FXML Button confirmButton;
     public void confirm() {
-        System.out.println("Student");
     }
 }
