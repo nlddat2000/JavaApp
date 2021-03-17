@@ -40,7 +40,6 @@ public class insertStudent {
             Connection connection = DriverManager.getConnection(url, "sa", "123");
             Statement statement = connection.createStatement();
             String sql = "SELECT username FROM Student WHERE username = '" + username.getText() + "'";
-            System.out.println(sql);
             ResultSet result = statement.executeQuery(sql);
             boolean check = false;
             while (result.next()) {
@@ -50,12 +49,10 @@ public class insertStudent {
             }
             if (!check) {
                 String sql1 = "INSERT INTO Student VALUES ('" + name.getText() + "', '', '', '', '" + username.getText() + "', '', '1', '" + major.getText() + "', '', " + intake.getText() + ",1)";
-                System.out.println(sql1);
                 statement.executeUpdate(sql1);
             }
 
             String sql2 = "INSERT INTO Score VALUES ('" + username.getText() + "','" + tusername + "', " + score.getText() + ")";
-            System.out.println(sql2);
             statement.executeUpdate(sql2);
 
 

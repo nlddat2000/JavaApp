@@ -19,14 +19,12 @@ public class ModifyScore {
         this.username  = username;
         this.tusername  = tusername;
         header.setText("Update score: " + this.username);
-        System.out.println(this.tusername + this.username);
     }
     public void setScore(ActionEvent event){
         try{
             String url = "jdbc:sqlserver://localhost:1433;databaseName=Student_Info;";
             Connection connection = DriverManager.getConnection(url, "sa", "123");
             String sql = " UPDATE score SET score = " + Float.valueOf(score.getText()) + " WHERE username = '" + username + "' AND tusername = '" + tusername + "'";
-            System.out.println(sql);
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
             connection.close();

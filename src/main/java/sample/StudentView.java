@@ -141,6 +141,7 @@ public class StudentView {
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(new Scene(root));
+        window.centerOnScreen();
         window.setTitle("login");
         window.show();
 

@@ -31,7 +31,6 @@ public class ScoreWindowController implements  Initializable{
 
     public void setUserName(String userName) {
         this.userName = userName;
-        System.out.println(userName);
         NameLabel.setText(userName);
         getValue(userName);
     }
