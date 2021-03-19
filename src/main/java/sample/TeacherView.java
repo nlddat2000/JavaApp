@@ -126,7 +126,6 @@ public class TeacherView {
             Connection connection = DriverManager.getConnection(url, "sa", "123");
 
             String sql = "SELECT * FROM student join score on student.username = score.username where score.tusername = '" + tusername + "'";
-            System.out.println(sql);
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(sql);
 
@@ -179,7 +178,6 @@ public class TeacherView {
                 String sql0 = "DELETE FROM Score WHERE  Username = ('" + studentSelected.get(i).getUsername() + "') " + " AND tusername =  '" + tusername + "'";
                 //String sql = "DELETE FROM Student WHERE  Username = ('" + studentSelected.get(i).getUsername() + "');";
                 Statement statement = connection.createStatement();
-                System.out.println(sql0);
                 if (!confirmation("delete")) return;
                 statement.executeUpdate(sql0);
                 //statement.executeUpdate(sql);
@@ -281,7 +279,6 @@ public class TeacherView {
     }
     public void score(ActionEvent event) {
         if (username.getText().equals("")) return;
-        System.out.println("deja vu");
         AnchorPane root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ScoreWindow.fxml"));
@@ -315,7 +312,6 @@ public class TeacherView {
         String new_score = score.getText();
         String sql = "SELECT * FROM student join score on (student.username = score.username) WHERE score.tusername = '" + tusername + "'";
         int i = 0;
-        System.out.println(!name.getText().equals(""));
 
         if (!name.getText().equals("")) {
             sql += " AND Student.Name = '" + new_name + "' ";
@@ -380,7 +376,6 @@ public class TeacherView {
 
             ObservableList<StudentInfo> students = FXCollections.observableArrayList();
 
-            System.out.println(sql);
 
             try {
                 String url = "jdbc:sqlserver://localhost:1433;databaseName=Student_Info;";
@@ -439,7 +434,6 @@ public class TeacherView {
         }
     }
     public void Graph(ActionEvent event) {
-        System.out.println("deja vu");
         Parent root;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Graph.fxml"));
@@ -476,7 +470,6 @@ public class TeacherView {
 
     public void setStatus(String tusername) {
         this.tusername = tusername;
-        System.out.println(this.tusername);
         updateTable();
         //getStudentInfo(username);
     }

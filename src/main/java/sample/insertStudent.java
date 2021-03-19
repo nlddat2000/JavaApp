@@ -61,7 +61,7 @@ public class insertStudent {
             window.close();
         } catch (
                 SQLException e) {
-            e.printStackTrace();
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Insert Error");
             alert.setHeaderText("Failed to insert new student");
